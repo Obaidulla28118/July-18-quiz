@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
       // Add more Chemistry chapters
     ],
     biology: [
-      { name: "» Biological classification", url: "/quiz/Biology/each chp qType/biological-Classification-qType.html" },
-       { name: "» Biomolecules", url: "/quiz/Biology/each chp qType/biomolecules-qType.html" },
-       { name: "» Living world", url: "/quiz/Biology/each chp qType/living-world-qType.html" },
+      { name: "» Biological classification", url: "/Biology/each-chp-qType/biological-Classification-qType.html" },
+       { name: "» Biomolecules", url: "/Biology/each-chp-qType/biomolecules-qType.html" },
+       { name: "» Living world", url: "/Biology/each-chp-qType/living-world-qType.html" },
       { name: "» plant kingdom", url: "physics/chapter2.html" },
       // Add more Biology chapters
     ]
