@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Cafe - Your Ultimate Companion for NEET Preparation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+     <div class="header">
+        <h1>Welcome to NEET Cafe</h1>
+        <p>Your Ultimate Companion for NEET Preparation</p>
+    </div>
+  </header>
+   
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search for chapters...">
+            <ul id="suggestions" class="suggestions"></ul>
+        </div>
+        <section class="subject-section">
+            <div class="subject-card" data-subject="physics">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQEvnMXCbyd9fW_SyeRokIt_8gEYuvgZ5R2gqt5zVAUGTYEOwTemN7tUjd&s=10" alt="Physics thumbnail">
+                <h3>Physics</h3>
+            </div>
+            <div class="subject-card" data-subject="biology">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAj_M4vrmpWCXCk3yGu_soUKzJW599KqXbAct7M2KrHxO1WMVdKiIJW8VB&s=10" alt="Biology thumbnail">
+                <h3>Biology</h3>
+            </div>
+            <div class="subject-card" data-subject="chemistry">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQXuUcBh4UlB0hkfojzqx1rDG4jXmTMhgf-Ec0XLFz5k-s8zcGPobTH_3V&s=10" alt="Chemistry thumbnail">
+                <h3>Chemistry</h3>
+            </div>
+        </section>
+        <section id="physics-chapters" class="chapter-list">
+            <a href="physics/chapter1.html">Physics - Unit and dimension</a>
+            <a href="physics/chapter2.html">Physics - Chapter 2</a>
+            <!-- Add more links for Physics chapters -->
+        </section>
+        <section id="chemistry-chapters" class="chapter-list">
+            <a href="chemistry/chapter1.html">Chemistry - Chapter 1</a>
+            <a href="chemistry/chapter2.html">Chemistry - Chapter 2</a>
+            <!-- Add more links for Chemistry chapters -->
+        </section>
+        <section id="biology-chapters" class="chapter-list">
+            <a href="biology/chapter1.html">Biology - Chapter 1</a>
+            <a href="biology/chapter2.html">Biology - Chapter 2</a>
+            <!-- Add more links for Biology chapters -->
+        </section>
+            
+        <section class="blog-section">
+            <h2>Stay Ahead with Our Expert Analysis</h2>
+            <p>Discover the latest NEET exam preparation tips, strategies, and updates.</p>
+            <div class="blog-list">
+                <div class="blog-post">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLpATLAr4yQYCzt57pZv_XuLJZxbwpy1Oz2qqYdl1BOWxXPJLiLg2aQNw&s=10" alt="Blog 1 thumbnail" onclick="location.href='blog1.html'">
+                    <h3>Effective Study Strategies for NEET</h3>
+                    <p>Learn how to create a study plan that maximizes your productivity.</p>
+                    <button class="share-button" data-url="blog1.html">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6micnbZTXWVuarjXBiUKoCZkOqIX1e1eWqxBrIhiRxdEyQRUInAmWpkz1&s=10" alt="Share logo">
+                    </button>
+                </div>
+                <div class="blog-post">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbuFNB-j4aTUGH4HQ_OgYLyzu7RHPo7zlLFfloky7zQzg965wX-4yq6LY&s=10" alt="Blog 2 thumbnail" onclick="location.href='blog2.html'">
+                    <h3>Revision Techniques to Boost Your Recall</h3>
+                    <p>Discover methods to retain information and enhance your memory.</p>
+                    <button class="share-button" data-url="blog2.html">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6micnbZTXWVuarjXBiUKoCZkOqIX1e1eWqxBrIhiRxdEyQRUInAmWpkz1&s=10" alt="Share logo">
+                    </button>
+                </div>
+                <!-- Add more blog posts -->
+            </div>
+        </section>
+       
+    </div>
+    <script src="script.js"></script>
+</body>
+<footer>
+    <div class="social-links">
+        <a href="https://www.facebook.com/YourPage" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.instagram.com/YourPage" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.youtube.com/user/YourChannel" target="_blank" rel="noopener noreferrer">YouTube</a>
+    </div>
+    <p>© 2024 Neet Cafe. All rights reserved.</p>
+</footer>
+</html>
