@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Cafe Quiz</title>
+    <link rel="stylesheet" href="/quiz/quiz.css">
+</head>
+<body>
+  <div class="app">
+    <h1>💥 NEET Cafe Quiz 💥</h1>
+    <div class="quiz">
+      <div class="progress-bar">
+        <span class="progress"></span>
+        <span class="total"></span> 
+      </div>
+      <div id="timer-container">
+        <div id="timer"></div>
+      </div>
+
+      
+      
+      <h2 id="question">Question goes here</h2>
+      
+      <div id="answer-buttons">
+        <button class="btn">Answer 1</button>
+        <button class="btn">Answer 2</button>
+        <button class="btn">Answer 3</button>
+        <button class="btn">Answer 4</button>
+      </div>
+
+      <div id="btn-container">
+        <button id="previous-btn">Previous</button>
+        <button id="explain-btn">👁️NCERT</button>
+        <button id="next-btn">Next</button>   
+      </div>
+       
+      <button class="thank-btn">❤️ Thank You ❤️ </button>
+
+      <div id="popup-container" class="popup-container">
+        <div class="popup-content">
+          <span class="close">&times;</span>
+          <p id="explanation-text"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const questions=
+[
+
+  {
+    question: " » Assertion: Living organisms have more Ca, Mg, Na in them than inanimate objects. <br><br>» Reason: Living process is a constant effort to prevent falling into non-equilibrium.",
+    options: {
+      A: "Both Assertion and Reason are true and Reason is the correct explanation of Assertion.",
+      B: "Both Assertion and Reason are true but Reason is not the correct explanation of Assertion.",
+      C: "Assertion is true but Reason is false.",
+      D: "Both Assertion and Reason are false."
+    },
+    correct_answer: "D",
+    explanation: "This is the explanation for Q.1."
+  },
+  {
+    question: " » Assertion: Secondary metabolites are produced in small quantities.<br> <br>» Reason: Secondary metabolites have no physiological effect on plants.",
+    options: {
+      A: "Both Assertion and Reason are true and Reason is the correct explanation of Assertion.",
+      B: "Both Assertion and Reason are true but Reason is not the correct explanation of Assertion.",
+      C: "Assertion is true but Reason is false.",
+      D: "Both Assertion and Reason are false."
+    },
+    correct_answer: "D",
+    explanation: "This is the explanation for Q.2."
+  },
+  {
+    question: " » Assertion: Human diet should compulsorily contain glycine, serine, and tyrosine.<br> <br>» Reason: Essential amino acids cannot be synthesized in the human body.",
+    options: {
+      A: "Both Assertion and Reason are true and Reason is the correct explanation of Assertion.",
+      B: "Both Assertion and Reason are true but Reason is not the correct explanation of Assertion.",
+      C: "Assertion is true but Reason is false.",
+      D: "Both Assertion and Reason are false."
+    },
+    correct_answer: "D",
+    explanation: "This is the explanation for Q.4."
+  },
+  {
+    question: " » Assertion: The amino acid glycine comes under the category of nonessential amino acids.<br> <br>» Reason: This is due to the fact that it cannot be synthesized in the body.",
+    options: {
+      A: "Both Assertion and Reason are true and Reason is the correct explanation of Assertion.",
+      B: "Both Assertion and Reason are true but Reason is not the correct explanation of Assertion.",
+      C: "Assertion is true but Reason is false.",
+      D: "Both Assertion and Reason are false."
+    },
+    correct_answer: "D",
+    explanation: "This is the explanation for Q.6."
+  },
+  {
+    question: " » Assertion: Amino acids are known as α-amino acids.<br> <br>» Reason: Amino acids are organic compounds containing an amino group and carboxylic group as substituent on the α-carbon.",
+    options: {
+      A: "Both Assertion and Reason are true and Reason is the correct explanation of Assertion.",
+      B: "Both Assertion and Reason are true but Reason is not the correct explanation of Assertion.",
+      C: "Assertion is true but Reason is false.",
+      D: "Both Assertion and Reason are false."
+    },
+    correct_answer: "D",
+    explanation: "This is the explanation for Q.7."
+  },
+  {
+    question: " » Assertion: Proteins are a heteropolymer.<br> <br>» Reason: Dietary proteins are made up of different types of amino acids.",
+    options: {
+      A: "Both Assertion and Reason are true and Reason is the correct explanation of Assertion.",
+      B: "Both Assertion and Reason are true but Reason is not the correct explanation of Assertion.",
+      C: "Assertion is true but Reason is false.",
+      D: "Both Assertion and Reason are false."
+    },
+    correct_answer: "D",
+    explanation: "This is the explanation for Q.8."
+  },
+  {
+    question: " » Assertion: The long protein chain folds upon itself like a hollow ball, giving rise to the tertiary structure.<br> <br>» Reason: Tertiary structure gives a 3-dimensional view of a protein.",
+    options: {
+      A: "Both Assertion and Reason are true and Reason is the correct explanation of Assertion.",
+      B: "Both Assertion and Reason are true but Reason is not the correct explanation of Assertion.",
+      C: "Assertion is true but Reason is false.",
+      D: "Both Assertion and Reason are false."
+    },
+    correct_answer: "D",
+    explanation: "This is the explanation for Q.9."
+  },
+  {
+    question: " » Assertion: Only 20 amino acids are essential amino acids for humans.<br> <br>» Reason: They are essential for human health.",
+    options: {
+      A: "Both Assertion and Reason are true and Reason is the correct explanation of Assertion.",
+      B: "Both Assertion and Reason are true but Reason is not the correct explanation of Assertion.",
+      C: "Assertion is true but Reason is false.",
+      D: "Both Assertion and Reason are false."
+    },
+    correct_answer: "D",
+    explanation: "This is the explanation for Q.10."
+  },
+  {
+    question: " » Assertion: Vegetable oils are fats which are present in plant cells in soluble form.<br> <br>» Reason: Vegetable oils occur only in cells of the embryo.",
+    options: {
+      A: "Both Assertion and Reason are true and Reason is the correct explanation of Assertion.",
+      B: "Both Assertion and Reason are true but Reason is not the correct explanation of Assertion.",
+      C: "Assertion is true but Reason is false.",
+      D: "Both Assertion and Reason are false."
+    },
+    correct_answer: "D",
+    explanation: "This is the explanation for Q.12."
+  },
+  {
+    question: " » Assertion: Palmitic acid has 20 carbon atoms including the carboxyl carbon.<br> <br>» Reason: Arachidonic acid has 16 carbon atoms including the carboxyl carbon.",
+    options: {
+      A: "Both Assertion and Reason are true and Reason is the correct explanation of Assertion.",
+      B: "Both Assertion and Reason are true but Reason is not the correct explanation of Assertion.",
+      C: "Assertion is true but Reason is false.",
+      D: "Both Assertion and Reason are false."
+    },
+    correct_answer: "D",
+    explanation: "This is the explanation for Q.13."
+  }
+];
+
+let currentQuestionIndex = 0;
+let score = 0;
+let timer;
+let timeLeft;
+let selectedAnswers = {};
+let remainingTimes = Array(questions.length).fill(30);
+let questionAnswered = Array(questions.length).fill(false);
+
+const questionElement = document.getElementById("question");
+const answerButtons = document.getElementById("answer-buttons");
+const nextButton = document.getElementById("next-btn");
+const previousButton = document.getElementById("previous-btn");
+const explainButton = document.getElementById("explain-btn");
+const popupContainer = document.getElementById("popup-container");
+const explanationText = document.getElementById("explanation-text");
+const closeButton = document.querySelector(".close");
+const timerContainer = document.getElementById("timer-container");
+const timerDisplay = document.getElementById("timer");
+const progressBar = document.querySelector('.progress-bar');
+const currentQuestionCount = document.querySelector('.progress');
+const totalQuestions = questions.length;
+const thankButton = document.querySelector(".thank-btn")
+function startQuiz() {
+  currentQuestionIndex = 0;
+  score = 0;
+  nextButton.innerHTML = "Next";
+  progressBar.style.display = "block";
+  explainButton.style.display = "block";
+  previousButton.style.display = "block";
+  selectedAnswers = {};
+  remainingTimes = Array(questions.length).fill(30);
+  questionAnswered = Array(questions.length).fill(false);
+  showQuestion();
+  updateProgress();
+}
+
+function showQuestion() {
+  resetState();
+  const currentQuestion = questions[currentQuestionIndex];
+  const questionNo = currentQuestionIndex + 1;
+  questionElement.innerHTML = ` ${currentQuestion.question}`;
+  Object.keys(currentQuestion.options).forEach(optionKey => {
+    const button = document.createElement("button");
+    button.innerHTML = currentQuestion.options[optionKey];
+    button.classList.add("btn");
+    button.dataset.option = optionKey;
+    if (optionKey === currentQuestion.correct_answer) {
+      button.dataset.correct = "true";
+    }
+    button.addEventListener("click", selectAnswer);
+    answerButtons.appendChild(button);
+  });
+  if (selectedAnswers[currentQuestionIndex] !== undefined) {
+    highlightSelectedAnswer(selectedAnswers[currentQuestionIndex]);
+  }
+  timeLeft = remainingTimes[currentQuestionIndex];
+  if (!questionAnswered[currentQuestionIndex]) {
+    startTimer();
+  } else {
+    updateTimerDisplay();
+  }
+  updateProgress();
+}
+
+function startTimer() {
+  updateTimerDisplay();
+  timer = setInterval(function() {
+    timeLeft--;
+    if (timeLeft <= 0) {
+      timeLeft = 0; // Ensure the timer does not go below zero
+      clearInterval(timer);
+      clickCorrectAnswer(); // Show the correct answer but do not increase the score
+    }
+    remainingTimes[currentQuestionIndex] = timeLeft;
+    updateTimerDisplay();
+  }, 1000);
+}
+
+
+function updateTimerDisplay() {
+  timerDisplay.innerHTML = `⏰ ${timeLeft} s Left`;
+  timerDisplay.style.width = `${timeLeft * 100 / 30}%`;
+}
+
+function stopTimer() {
+  clearInterval(timer);
+}
+
+function navigateToPreviousQuestion() {
+  if (currentQuestionIndex > 0) {
+    currentQuestionIndex--;
+    showQuestion();
+    nextButton.style.display='block'
+    explainButton.style.display='block'
+    thankButton.style.display='none'
+    previousButton.innerHTML='Previous'
+    previousButton.style.border='0.5px solid darkgreen'
+    
+  }
+}
+
+function onAnswerClicked() {
+  if (remainingTimes[currentQuestionIndex] < 30) {
+    questionAnswered[currentQuestionIndex] = true;
+    stopTimer();
+  }
+}
+
+function clickCorrectAnswer() {
+  const correctBtn = document.querySelector('button[data-correct="true"]');
+  if (correctBtn) {
+    correctBtn.classList.add("correct");
+    Array.from(answerButtons.children).forEach(button => {
+      button.disabled = true;
+    });
+    nextButton.style.display = "block";
+    questionAnswered[currentQuestionIndex] = true;
+    updateProgress();
+  }
+}
+
+
+function resetState() {
+  clearInterval(timer);
+  timerDisplay.innerHTML = "";
+  timerDisplay.style.width = "100%";
+  while (answerButtons.firstChild) {
+    answerButtons.removeChild(answerButtons.firstChild);
+  }
+}
+
+function selectAnswer(e) {
+  stopTimer(); // Stop the timer immediately
+  const selectedBtn = e.target;
+  const isCorrect = selectedBtn.dataset.correct === "true";
+  selectedAnswers[currentQuestionIndex] = selectedBtn.dataset.option;
+  if (isCorrect) {
+    selectedBtn.classList.add("correct");
+    score++;
+  } else {
+    selectedBtn.classList.add("incorrect");
+    showCorrectAnswer();
+  }
+  Array.from(answerButtons.children).forEach(button => {
+    if (button.dataset.correct === "true") {
+      button.classList.add("correct");
+    }
+    button.disabled = true;
+  });
+  nextButton.style.display = "block";
+  questionAnswered[currentQuestionIndex] = true;
+  updateProgress();
+}
+
+function highlightSelectedAnswer(selectedOption) {
+  Array.from(answerButtons.children).forEach(button => {
+    if (button.dataset.option === selectedOption) {
+      button.classList.add("selected");
+      if (button.dataset.correct === "true") {
+        button.classList.add("correct");
+      } else {
+        button.classList.add("incorrect");
+        showCorrectAnswer();
+      }
+    }
+    button.disabled = true;
+  });
+}
+
+function showCorrectAnswer() {
+  Array.from(answerButtons.children).forEach(button => {
+    if (button.dataset.correct === "true") {
+      button.classList.add("correct");
+    }
+  });
+}
+
+function showScore() {
+  resetState();
+  const accuracy = (score / questions.length) * 100;
+  const formattedAccuracy = accuracy.toFixed(2);
+  questionElement.innerHTML = `Total ✅ = ${score} out of ${questions.length} <br> <br>Accuracy = ${formattedAccuracy}% !`;
+  nextButton.style.display='none'
+  explainButton.style.display='none'
+  thankButton.style.display='block'
+  previousButton.innerHTML='Review'
+  previousButton.style.backgroundColor=' #e7f6d5'
+  previousButton.style.border='1px solid red'
+  previousButton.style.color='darkgreen'
+  
+}
+
+function handleNextButton() {
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questions.length) {
+    showQuestion();
+  } 
+  else {
+    showScore();
+    
+  }
+}
+
+nextButton.addEventListener("click", () => {
+  if(currentQuestionIndex < questions.length) {
+    handleNextButton();
+  }
+  else {
+    startQuiz()
+  }
+  
+});
+
+previousButton.addEventListener("click", navigateToPreviousQuestion);
+
+explainButton.addEventListener("click", () => {
+  const currentQuestion = questions[currentQuestionIndex];
+  const explanation = currentQuestion.explanation;
+  explanationText.textContent = explanation;
+  popupContainer.style.display = "block";
+});
+
+closeButton.addEventListener("click", () => {
+  popupContainer.style.display = "none";
+});
+
+window.addEventListener("click", (event) => {
+  if (event.target === popupContainer) {
+    popupContainer.style.display = "none";
+  }
+});
+
+function updateProgress() {
+  currentQuestionCount.textContent = `${currentQuestionIndex + 1} of ${questions.length} Questions`;
+}
+
+startQuiz();
+
+  </script>
+</body>
+                                  
+</html>
