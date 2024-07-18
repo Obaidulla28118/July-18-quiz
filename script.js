@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     biology: [
       { name: "» Biological classification", url: "/Biology/each-chp-qType/biological-Classification-qType.html" },
        { name: "» Biomolecules", url: "/Biology/each-chp-qType/biomolecules-qType.html" },
-       { name: "» Living world", url: "/Biology/each-chp-qType/living-world-qType.html" },
+       { name: "» Living world", url: "Biology/each-chp-qType/biomolecules-qType.html" },
       { name: "» plant kingdom", url: "physics/chapter2.html" },
       // Add more Biology chapters
     ]
