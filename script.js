@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
       { name: "1. Chapter 1", url: "quiz.html" },
       { name: "2. Chapter 2", url: "physics/chapter2.html" },
       { name: "1. Unit and dimensions", url: "quiz.html" },
-      
       // Add more Physics chapters
     ],
     chemistry: [
@@ -16,10 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
       // Add more Chemistry chapters
     ],
     biology: [
-      { name: "» Biological classification", url: "/Biology/each-chp-qType/biological-Classification-qType.html" },
-       { name: "» Biomolecules", url: "/Biology/each-chp-qType/biomolecules-qType.html" },
-       { name: "» Living world", url: "Biology/each-chp-qType/biomolecules-qType.html" },
-      { name: "» plant kingdom", url: "physics/chapter2.html" },
+      { name: "» Biological classification", url: "/quiz/Biology/each chp qType/biological-Classification-qType.html" },
+      { name: "» Biomolecules", url: "/quiz/Biology/each chp qType/biomolecules-qType.html" },
+      { name: "» Living world", url: "/quiz/Biology/each chp qType/living-world-qType.html" },
+      { name: "» Plant kingdom", url: "physics/chapter2.html" },
       // Add more Biology chapters
     ]
   };
@@ -72,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="popup-content">
         <span class="close-button">&times;</span>
         <ul>
-          ${subjectChapters.map(chapter => `<li><strong>${chapter.name}</strong></li>`).join('')}
+          ${subjectChapters.map(chapter => `<li class="popup-item"><strong>${chapter.name}</strong></li>`).join('')}
         </ul>
       </div>
     `;
@@ -81,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeButton = popup.querySelector('.close-button');
     closeButton.addEventListener('click', () => closePopup(popup));
 
-    const chapterListItems = popup.querySelectorAll('li');
+    const chapterListItems = popup.querySelectorAll('.popup-item');
     chapterListItems.forEach((li, index) => {
       li.addEventListener('click', () => {
         location.href = subjectChapters[index].url;
@@ -104,4 +103,13 @@ document.addEventListener("DOMContentLoaded", () => {
       window.removeEventListener("click", handleOutsideClick, true);
     }
   }
+
+  // Add CSS rules to prevent text selection
+  const style = document.createElement('style');
+  style.textContent = `
+    .popup-item {
+      user-select: none;
+    }
+  `;
+  document.head.appendChild(style);
 });
