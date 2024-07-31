@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Biomolecules Quiz</title>
+  <title>NEET Cafe Quiz : Biomolecules</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -44,16 +43,22 @@
 <body>
   <div class="qtype-container">
     <!-- Each box represents a quiz type -->
-    <div class="A&R box" onclick="redirectTo('Biology/qArray-qType-html/biomolecules-A&R.html')">10 most important Assertion Reason type questions</div>
-    <div class="NHT box" onclick="redirectTo('https://obaidulla28118.github.io/Quiz/')">10 NCERT Hidden Treasures questions</div>
-   
+    <div id="assertionReasonBox" class="box" data-target="Biology/qArray-qType-html/biomolecules-A&R.html">10 most important Assertion Reason type questions</div>
+    <div id="statementBox" class="box" data-target="statement-questions.html">10 most important Statement type questions</div>
+    <div id="ntrBox" class="box" data-target="ntr-questions.html">10 most important NTR type questions</div>
   </div>
 
   <script>
-    function redirectTo(page) {
-      window.location.href = page; // Redirect to the specified page
-    }
+    // Select all elements with the class 'box'
+    const boxes = document.querySelectorAll('.box');
+
+    // Add click event listener to each box
+    boxes.forEach(box => {
+      box.addEventListener('click', function() {
+        // Use the data-target attribute to get the URL
+        window.location.href = this.getAttribute('data-target');
+      });
+    });
   </script>
 </body>
-
-  </html>
+</html>
